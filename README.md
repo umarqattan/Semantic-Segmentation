@@ -1,23 +1,23 @@
 # Semantic Segmentation
-### Implementation
-  ## LOAD VGG
+## Implementation
+  ### LOAD VGG
   1. Load a an already trained (Pre-trained) VGG Model into TensorFlow
   2. Create and load a TensorFlow session
   3. Get relative paths to the variables and saved_model.pb directory and file, respectively
   4. Return a tuple of tensors including the image_input, keep_prob, and layers 3, 4, and 7.
-  ## LAYERS
+  ### LAYERS
   5. Apply 1x1 convolutions to the gg_layer(3,4,7)_output encoded layers
   6. Add decoded layers to the fully convolutional network by adding skip layers such as layers 2 and 4
      and upsampled layers such as 1, 3, and the ouput
   7. Return a tensor for the decoded output layer, decoderlayer_output.
-  ## OPTIMIZE
+  ### OPTIMIZE
   8. Turn the 4-dimensional tensors to 2-dimensional where each row corresponds to the image's pixel value and
      each column corresponds to the image's class
   9. Compute the cross_entropy and the loss by applying TensorFlow's neural network's softmax_cross_entropy_with_logits
      function. This will enable us to find the labels with which to accurately classify the images.
   10. Apply the AdamOptimizer function with a learning rate of 0.005 and minimize it by passing it the cross_entropy_loss.
   11. Return a tuple consisting of logits, train_op, and cross_entropy_loss
-  ## MAIN
+  ### MAIN
   12. For each epoch in the given number of epochs to train the neural network, get the batch size of the current batch to pass to the
       get_batches_fn helper function and iterate over the images and labels.
   13. For each image and label, create a dictionary of the images and their corresponding labels along with the
@@ -37,10 +37,8 @@ BATCH_SIZE = 1
 LEARNING_RATE = 0.005
 DROPOUT = 0.70
 ```
-the following results came out to
-epoch:  1/1 with a training loss:  2.2188401046921227
---------------------------------------------------------------------
-Training Finished. Saving test images to: ./runs/1520234339.6033611, where all the tests passed.
+
+where the following results came out to epoch:  1/1 with a training loss:  2.2188401046921227, passing all the tests.
  
 ### Setup
 ##### Frameworks and Packages
