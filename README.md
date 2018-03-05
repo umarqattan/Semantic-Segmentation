@@ -31,11 +31,26 @@
 Having performed 3 trials with the following dropout rates, `dropout = 0.70` and `dropout = 0.75`, and `dropout = 0.80`  with the following parameters
 
 ```
+#Trial 1 (Best Training Loss)
 EPOCHS = 20
 BATCH_SIZE = 1
 
 LEARNING_RATE = 0.005
 DROPOUT = 0.70
+
+#Trial 2
+EPOCHS = 20
+BATCH_SIZE = 1
+
+LEARNING_RATE = 0.005
+DROPOUT = 0.75
+
+#Trial 3
+EPOCHS = 20
+BATCH_SIZE = 2
+
+LEARNING_RATE = 0.005
+DROPOUT = 0.80
 ```
 
 where the following results came out to epoch:  1/1 with a training loss:  2.2188401046921227, passing all the tests.
