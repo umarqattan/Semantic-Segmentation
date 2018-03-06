@@ -15,18 +15,22 @@ from tqdm import tqdm
 # Tune these parameters
 IMAGE_SHAPE = (160, 576)
 NUMBER_OF_CLASSES = 2
-EPOCHS = 10
+EPOCHS = 2
 BATCH_SIZE = 1
-LEARNING_RATE = 0.005
-DROPOUT = 0.70
+LEARNING_RATE = 0.0005
+DROPOUT = 0.5
 
 def conv1by1(layer, layer_name):
   """ Return the output of a 1x1 convolution of a layer """
   return tf.layers.conv2d(inputs = layer,
                           filters =  NUMBER_OF_CLASSES,
-                          kernel_size = (1, 1),
-                          strides = (1, 1),
-                          name = layer_name)
+                          kernel_size = 1,
+                          strides = 1,
+                          name = layer_name,
+                          padding = 'same',
+                          kernel_initializer=tf.truncated_normal_initializer(stddev=0.01),
+                          kernel_regularizer=tf.contrib.layers.l2_regularizer(0.001)
+                          )
 
 def upsample(layer, k, s, layer_name):
   """ Return the output of transpose convolution given kernel_size k and strides s """

@@ -145,7 +145,7 @@ def run():
     train_nn(session, helper.EPOCHS, helper.BATCH_SIZE, get_batches_fn, 
              train_op, cross_entropy_loss, image_input,
              correct_label, keep_prob, learning_rate)
-    helper.save_inference_samples(RUNS_DIRECTORY, DATA_DIRECTORY, session, IMAGE_SHAPE, logits, keep_prob, image_input)
+    helper.save_inference_samples(RUNS_DIRECTORY, DATA_DIRECTORY, session, helper.IMAGE_SHAPE, logits, keep_prob, image_input)
 
 if __name__ == "__main__":
   execute_test_suite()
